@@ -1,0 +1,20 @@
+{
+  "validGuest": {
+    "firstName": "Vitor",
+    "lastName": "Brito",
+    "email": "vitor.brito@test.com",
+    "phone": "21999999999"
+  },
+  "invalidGuestEmptyFields": {
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "phone": ""
+  },
+  "invalidGuestBadFormat": {
+    "firstName": "V",
+    "lastName": "B",
+    "email": "email-invalido",
+    "phone": "123"
+  }
+}

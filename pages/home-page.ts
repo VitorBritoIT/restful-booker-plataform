@@ -1,0 +1,28 @@
+import { Page, Locator, expect } from '@playwright/test';
+
+export class HomePage {
+  readonly page: Page;
+  readonly roomsNavButton: Locator;
+  readonly singleRoomHeading: Locator;
+  readonly bookNowButton: Locator;
+
+  constructor(page: Page) {
+    this.page = page;
+    this.roomsNavButton = page.locator('#navbarNav').getByText('Rooms');
+    this.singleRoomHeading = page.locator('//h5[text()="Single"]');
+    this.bookNowButton = page.locator('//a[@class="btn btn-primary" and text()="Book now"]').first();
+  }
+
+  async navigate() {
+    await this.page.goto('https://automationintesting.online/');
+    await expect(this.page).toHaveTitle('Restful-booker-platform demo');
+  }
+
+  async selectSingleRoom() {
+    await this.roomsNavButton.click();
+    await expect(this.singleRoomHeading).toBeVisible();
+    await expect(this.bookNowButton).toBeVisible();
+    await this.bookNowButton.click();
+    await expect(this.page).toHaveURL(/.*reservation/);
+  }
+}
