@@ -21,8 +21,6 @@ export class ReservationPage {
     this.lastNameInput = page.locator('input[placeholder="Lastname"]');
     this.emailInput = page.locator('input[placeholder="Email"]');
     this.phoneInput = page.locator('input[placeholder="Phone"]');
-    
-  
     this.errorAlertBox = page.locator('.alert.alert-danger');
   }
 
