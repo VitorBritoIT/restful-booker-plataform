@@ -3,7 +3,7 @@ import { HomePage } from '../pages/home-page';
 import { ReservationPage } from '../pages/reservation-page';
 import bookingData from '../data/booking-data.json';
 
-test.describe('Booking a single room for today with incorrect data', () => {
+test.describe('Booking a double room for today with incorrect data', () => {
 
   test('Should show error messages when submitting empty form', async ({ page }) => {
     const homePage = new HomePage(page);

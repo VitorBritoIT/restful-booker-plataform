@@ -5,6 +5,7 @@ export class HomePage {
   readonly roomsNavButton: Locator;
   readonly singleRoomHeading: Locator;
   readonly doubleRoomHeading: Locator;
+  readonly suiteRoomHeading: Locator;
   readonly bookNowButton: Locator;
 
   constructor(page: Page) {
@@ -12,6 +13,7 @@ export class HomePage {
     this.roomsNavButton = page.locator('#navbarNav').getByText('Rooms');
     this.singleRoomHeading = page.locator('//h5[text()="Single"]');
     this.doubleRoomHeading = page.locator('//h5[text()="Double"]');
+    this.suiteRoomHeading = page.locator('//h5[text()="Suite"]');
     this.bookNowButton = page.locator('//a[@class="btn btn-primary" and text()="Book now"]').first();
   }
 
@@ -31,6 +33,14 @@ export class HomePage {
   async selectDoubleRoom() {
     await this.roomsNavButton.click();
     await expect(this.doubleRoomHeading).toBeVisible();
+    await expect(this.bookNowButton).toBeVisible();
+    await this.bookNowButton.click();
+    await expect(this.page).toHaveURL(/.*reservation/);
+  }
+  
+    async selectSuiteRoom() {
+    await this.roomsNavButton.click();
+    await expect(this.suiteRoomHeading).toBeVisible();
     await expect(this.bookNowButton).toBeVisible();
     await this.bookNowButton.click();
     await expect(this.page).toHaveURL(/.*reservation/);

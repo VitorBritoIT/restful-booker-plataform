@@ -10,7 +10,7 @@ test.describe('Booking a double room for today with incorrect data', () => {
     const reservationPage = new ReservationPage(page);
 
     await homePage.navigate();
-    await homePage.selectDoubleRoom();
+    await homePage.selectSuiteRoom();
     await reservationPage.validateReservationDetails();
 
     await reservationPage.fillGuestForm(bookingData.invalidGuestBadFormat);
@@ -21,5 +21,4 @@ test.describe('Booking a double room for today with incorrect data', () => {
       'size must be between'
     ]);
   });
-
 });
